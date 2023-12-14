@@ -35,6 +35,8 @@ abcone2threexyz
 ```
 should output 29 + 83 + 13 = 125
 
-My solution involed using Rust's powerful [Hashmap](https://doc.rust-lang.org/std/collections/struct.HashMap.html) implementation, as hashing a value results in an Option enum, with either the value or 'None'. All I had to was make a hashmap of strings for the digits 0-9, and have the hash be the actual integer value itself. Then we can window-loop through substrings of the line, hash the substring and if the value isn't None, we can add it to our variables.
+My solution involed using Rust's powerful [Hashmap](https://doc.rust-lang.org/std/collections/struct.HashMap.html) implementation, as using ```.get()``` on it, allows us to access the value if the key exists, and None if not. All I had to was make a hashmap of strings for the digits 0-9, and have the hash be the actual integer value itself. Then we can window-loop through substrings of the line, hash the substring and if the value isn't None, we can add it to our variables.
 
-My current implentation loops through substrings of sizes 3, 4 and 5 from the current character (since all the words from zero-nine either have those respective lenghts), and hashes each one, and if it exisits in the hash, it does the same logic as before with the number.
+My current implentation loops through substrings of sizes 3, 4 and 5 from the current character (since all the words from zero-nine either have those respective lenghts), and hashes each one. If it exisits in the hash, it does the same logic as before with the resulting number.
+
+Feel free to test it yourself with the provided input.txt, using ```cargo run```, or if you want to be fancy you can use your own data set and run it using ```cargo run filename.txt```.
