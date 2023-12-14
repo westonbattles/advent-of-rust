@@ -23,9 +23,18 @@ The idiomatic way to parse this from the game string, was to implement the ```Fr
 
 The ```FromStr``` trait allows me to call ```.parse()``` on my game string, and handle the case of a returned error. Being able to use ```.parse()``` on the string given to me from my custom line reader, due to my implementation of ```FromStr``` felt very idiomatic, and is another one of Rust's amazing capabilities as a language.
 
-After parsing the game data, I then define a mutable boolean variable called ```game_is_possible```, initiallized to false. I then loop through each set in a given game's sets, and then for each set, I compare each value with its corresponding value in a ```bag_limit``` constant I had defined, which looks like this;
+After parsing the game data, we then define a mutable boolean variable called ```game_is_possible```, initiallized to true. we then loop through each set in a given game's sets, and then for each set, we compare each value with its corresponding value in a ```bag_limit``` constant we had defined previously, which looks like this;
 
 ``` bag_limit: [u32; 3] = [12, 13, 14] ```
+
+Amazingly, Rust provides a very clever and concise way to compare corresponding values in 2 given iterators with the ```.zip()``` method.
+
+```let set_is_not_valid = !set.iter().zip(bag_limit.iter()).all(|(&a, &b)| a <= b);```
+
+This code simultianiously iterates through the first iterator (```set.iter()```), and the iterator passed as a pramater to ```.zip()``` (```bag_limit.iter()```). Calling ```.all()``` on this allows us to store reference to the two currently iterated values, and compare them. If all the comparisons are true, than the output is true. If any are false, than the output is false.
+
+Since we have a ```!``` preceding this boolean, the output inverses and we now have a way to determine if our given set is valid or not.
+If the set is not valid, than we set the variable ```game_is_possible``` to false, and we know not to add the game id to the total after looping through each set in the game.
 
 
 ### Part 2
@@ -34,4 +43,22 @@ Part 2 of this problem disregards the previous "limit", and instead asks you to 
 
 Due to my framework for parseing in cube games from a string, all I had to do was implement the new logic. I didn't have to spend any more time creating framework as I could still load and access data from game lines easily.
 
-My solution for this problem involved looping through each set in the Vector of game sets, and comparing it to the last
+My solution for this problem involved pretty much the same logic as before, but instead of doing it with the entire sets, we have to do it with the values themselves. This means no more ```.add()``` :(
+
+We start off by saving the first set and defining it as the ```max_set```. We then loop through the next sets in the game, and compare each individual value of the iterated set with the ```max_set```. If any of the values in the iterated set are greater, than we set the corresponding value in ```max_set``` to be that value. The code looks like this:
+
+```
+for (&val, max) in set.iter().zip(max_set.iter_mut()){
+  if val > *max {
+    *max = val;
+  }
+}
+```
+
+Since we might need to modify the actual value of the corresponding ```max_set``` value, Rust lets us use ```.iter_mut()``` instead, which lets us dereference and then mutate the value itself. So by the end of this loop, the ```max_set``` array will contain the highest three red, green and blue numbers. Beautiful right?
+
+
+Last but not least, we need to sum the product of every ```max_set```, and you can do this in Rust with a single line;
+```total += max_set.iter().product::<u32>(); // I love rust so fucking much```
+
+As you can tell by my enthusiastic comment, being able to do this and cast the product into a neccesarily sized/signed integer using the  [turbofish](https://turbo.fish/) just reiterated how cool I already knew Rust to be in my head.
