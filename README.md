@@ -6,16 +6,17 @@
 
 <br> 
 
-## Table of Contents
+# Table of Contents
 
 <ul>
     <li><a href="#Advent-of-Code">Advent of Code</a></li>
     <li><a href="#About-This-Repository">About</a></li>
-    <li><a href="#Why-Rust?">Why Rust?</a></li>
+    <li><a href="#Why-Rust">Why Rust?</a></li>
     <li><a href="#Repository-Structure">Repository Structure</a></li>
   </ul>
 
 
+<br>
 <br>
 
 
