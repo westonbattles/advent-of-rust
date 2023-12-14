@@ -4,8 +4,6 @@
   <img src="https://www.rust-lang.org/logos/rust-logo-blk.svg" width="150">
 </p>
 
-<br>
-
 
 ## Table of Contents
 
@@ -15,6 +13,9 @@
     <li><a href="#Why-Rust?">Why Rust?</a></li>
     <li><a href="#Repository-Structure">Repository Structure</a></li>
   </ul>
+
+
+<br>
 
 
 ## Advent of Code
