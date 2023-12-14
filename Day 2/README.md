@@ -21,4 +21,17 @@ This problem allowed me to practice idiomatic Rustacean ways to parse data from 
 
 The idiomatic way to parse this from the game string, was to implement the ```FromStr``` trait for my ```Game``` struct. In this implementation, I defined logic to return the game and its data on success, and return a custom error type (depending on how the error was reached) on fail.
 
-The ```FromStr``` trait allows me to call ```.parse()``` on my game string, and handle the case of a returned error. Being able to use ```.parse()``` on the string given to me from my custom line reader, due to my implementation of ```FromStr``` felt very idiomatic, and is another one of Rusts amazing strengths as a language
+The ```FromStr``` trait allows me to call ```.parse()``` on my game string, and handle the case of a returned error. Being able to use ```.parse()``` on the string given to me from my custom line reader, due to my implementation of ```FromStr``` felt very idiomatic, and is another one of Rust's amazing capabilities as a language.
+
+After parsing the game data, I then define a mutable boolean variable called ```game_is_possible```, initiallized to false. I then loop through each set in a given game's sets, and then for each set, I compare each value with its corresponding value in a ```bag_limit``` constant I had defined, which looks like this;
+
+``` bag_limit: [u32; 3] = [12, 13, 14] ```
+
+
+### Part 2
+
+Part 2 of this problem disregards the previous "limit", and instead asks you to find the minimum number of each cube requried to play each game. For example, in the above demonstration the minimum number of cubes for Game 1 would be 4 red, 6 green and 2 blue. For each line, you must take the power of the minimum cube set (which is defined as the product of the three numbers in the set). Summing up these powers than results you in the correct answer.
+
+Due to my framework for parseing in cube games from a string, all I had to do was implement the new logic. I didn't have to spend any more time creating framework as I could still load and access data from game lines easily.
+
+My solution for this problem involved looping through each set in the Vector of game sets, and comparing it to the last
