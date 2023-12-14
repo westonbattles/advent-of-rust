@@ -1,7 +1,7 @@
 <h1 align="center">Advent of Rust</h1>
 
 <p align="center">
-  <img src="https://www.rust-lang.org/logos/rust-logo-blk.svg" width="150">
+  <img src="https://rustacean.net/assets/cuddlyferris.png" width="150">
 </p>
 
 
