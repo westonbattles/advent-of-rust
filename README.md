@@ -45,6 +45,9 @@ Each directory in this repository corresponds to a specific day of the Advent of
 - Any additional resources or references I found helpful
 
 <br>
+<br>
+
+# 
 
 ### Learning Outcomes
 Through this project, I aim to:
