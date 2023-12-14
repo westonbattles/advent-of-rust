@@ -2,7 +2,7 @@
 
 Day 1 started off pretty simple, and proved to be extremly applicable to Rust's powerful parseing capabilities: Given each line in some input file, you must sum the number created by the first numeric and last numeric.
 
-For exmaple if the given input file read:
+For exmaple, if the given input file read:
 ```
 1abc2
 pqr3stu8vwx
@@ -21,3 +21,20 @@ After iterating, the last number would be the last current number (which we were
 
 
 ### Part 2
+
+This is where I learned that each Advent of Code problem was seperated into 2 distinct parts, requiring completion of the first in order to view the second.
+
+In this second part, the problem revealed that some digits are actually spelled out instead of being numeric, which is a lot less trivial of a problem to tackle.
+
+
+For example, an input of
+```
+two1nine
+eightwothree
+abcone2threexyz
+```
+should output 29 + 83 + 13 = 125
+
+My solution involed using Rust's powerful (Hashmap)[https://doc.rust-lang.org/std/collections/struct.HashMap.html] implementation, as hashing a value results in an Option enum, with either the value or 'None'. All I had to was make a hashmap of strings for the digits 0-9, and have the hash be the actual integer value itself. Then we can window-loop through substrings of the line, hash the substring and if the value isn't None, we can add it to our variables.
+
+My current implentation loops through substrings of sizes 3, 4 and 5 from the current character (since all the words from zero-nine either have those respective lenghts), and hashes each one, and if it exisits in the hash, it does the same logic as before with the number.
