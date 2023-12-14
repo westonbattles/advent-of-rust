@@ -61,4 +61,4 @@ Since we might need to modify the actual value of the corresponding ```max_set``
 Last but not least, we need to sum the product of every ```max_set```, and you can do this in Rust with a single line;
 ```total += max_set.iter().product::<u32>(); // I love rust so fucking much```
 
-As you can tell by my enthusiastic comment, being able to do this and cast the product into a neccesarily sized/signed integer using the  [turbofish](https://turbo.fish/) just reiterated how cool I already knew Rust to be in my head.
+As you can tell by my enthusiastic comment, being able to do this and cast the product into a neccesarily sized/signed integer using the  [turbofish](https://turbo.fish/) syntax, just reiterated for me how cool I already knew Rust to be.
