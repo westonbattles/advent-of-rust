@@ -43,7 +43,7 @@ Part 2 of this problem disregards the previous "limit", and instead asks you to 
 
 Due to my framework for parseing in cube games from a string, all I had to do was implement the new logic. I didn't have to spend any more time creating framework as I could still load and access data from game lines easily.
 
-My solution for this problem involved pretty much the same logic as before, but instead of doing it with the entire sets, we have to do it with the values themselves. This means no more ```.add()``` :(
+My solution for this problem involved pretty much the same logic as before, but instead of doing it with the entire sets, we have to do it with the values themselves. This means no more ```.all()``` :(
 
 We start off by saving the first set and defining it as the ```max_set```. We then loop through the next sets in the game, and compare each individual value of the iterated set with the ```max_set```. If any of the values in the iterated set are greater, than we set the corresponding value in ```max_set``` to be that value. The code looks like this:
 
