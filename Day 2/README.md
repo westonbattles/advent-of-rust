@@ -4,7 +4,7 @@ Day 2 is when things started to heat up. In this problem, a game is explained in
 
 The first problem is, given lines of these "games" ordered with an ID, you must add up the IDs of all the games possible with only 12 red cubes, 13 green cubes, and 14 blue cubes. 
 
-For exmaple, given the following games:
+For example, given the following games:
 ```
 Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
