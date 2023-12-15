@@ -19,7 +19,7 @@ Game 1 would be valid, as each round does not contain a value for a cube color t
 
 This problem allowed me to practice idiomatic Rustacean ways to parse data from strings. I defined a ```Game``` struct, and had it represent an integer 'id', and a Vector of arrays all with length three ```game_sets```. As demonstration, the id of Game 1 in the example above would be '1', and the set of games would be a Vec<[u32; 3]>, containing ([4,0,3], [1,2,0], [0,2,0]). (The numbers in the array representing the counts of red, green and blue cubes respectively).
 
-The idiomatic way to parse this from the game string, was to implement the ```FromStr``` trait for my ```Game``` struct. In this implementation, I defined logic to return the game and its data on success, and return a custom error type (depending on how the error was reached) on fail.
+The idiomatic way to parse this from the game string, is to implement the ```FromStr``` trait for my ```Game``` struct. In this implementation, I defined logic to return the game and its data on success, and return a custom error type (depending on how the error was reached) on fail.
 
 The ```FromStr``` trait allows me to call ```.parse()``` on my game string, and handle the case of a returned error. Being able to use ```.parse()``` on the string given to me from my custom line reader, due to my implementation of ```FromStr``` felt very idiomatic, and is another one of Rust's amazing capabilities as a language.
 
