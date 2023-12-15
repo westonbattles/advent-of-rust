@@ -21,7 +21,7 @@ This problem allowed me to practice idiomatic Rustacean ways to parse data from 
 
 The idiomatic way to parse this from the game string, is to implement the ```FromStr``` trait for my ```Game``` struct. In this implementation, I defined logic to return the game and its data on success, and return a custom error type (depending on how the error was reached) on fail.
 
-The ```FromStr``` trait allows me to call ```.parse()``` on my game string, and handle the case of a returned error. Being able to use ```.parse()``` on the string given to me from my custom line reader, due to my implementation of ```FromStr``` felt very idiomatic, and is another one of Rust's amazing capabilities as a language.
+The ```FromStr``` trait allows me to call ```.parse()``` on my game string, and handle the case of a returned error. It is another one of Rust's amazing capabilities as a language.
 
 After parsing the game data, we then define a mutable boolean variable called ```game_is_possible```, initiallized to true. we then loop through each set in a given game's sets, and then for each set, we compare each value with its corresponding value in a ```bag_limit``` constant we had defined previously, which looks like this;
 
