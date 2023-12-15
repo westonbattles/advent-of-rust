@@ -39,7 +39,6 @@ Rust is known for its performance, memory safety and concurrency. By using Rust,
 
 ## Repository Structure
 Each directory in this repository corresponds to a specific day of the Advent of Code. Inside each directory, you will find:
-- The problem statement for the day
 - My solution written in Rust
 - A brief explanation of my approach and any challenges I encountered
 - Any additional resources or references I found helpful
